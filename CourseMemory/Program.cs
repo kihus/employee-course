@@ -1,7 +1,4 @@
-﻿
-using CourseMemory;
-
-double percentage;
+﻿using CourseMemory.Entities;
 
 Console.Write("How many employees will be registered? ");
 var n = int.Parse(Console.ReadLine() ?? "0");
@@ -32,6 +29,8 @@ Console.Write("Enter the employee id that will have salary increase: ");
 var id = await EmployeeManager.Instance.GetIdAsync();
 
 var employee = EmployeeManager.Instance.GetEmployeeById(id);
+
+double percentage;
 
 Console.Write("Enter the percentage: ");
 while (!double.TryParse(Console.ReadLine(), out percentage))

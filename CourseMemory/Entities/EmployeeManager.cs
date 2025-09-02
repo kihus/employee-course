@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace CourseMemory
+﻿namespace CourseMemory.Entities
 {
 	internal class EmployeeManager
 	{
-		private List<Employee> _employees = new List<Employee>();
+		private List<Employee> _employees = new();
 		private static EmployeeManager? _instance;
 		public static EmployeeManager Instance
 		{
 			get
 			{
-				if (_instance == null)
-				{
-					_instance = new EmployeeManager();
-				}
+				// (IDE0054 and IDE0074) The "??=" operator replaces the "if (_instance == null)" check, making the code clean.
+				_instance ??= new EmployeeManager();
 				return _instance;
 			}
 		}
@@ -30,7 +21,9 @@ namespace CourseMemory
 		/// <exception cref="ArgumentException">If user id doesn't exist </exception>
 		public void AddEmployee(Employee employee)
 		{
-			if (_employees.Any(x => x.Id == employee.Id)) throw new ArgumentException("This employees already exist!");
+			if (_employees.Any(x => x.Id == employee.Id)) 
+				throw new ArgumentException("This employees already exist!");
+
 			_employees.Add(employee);
 		}
 
@@ -57,9 +50,9 @@ namespace CourseMemory
 		public void ListEmployee()
 		{
 			Console.WriteLine("Update List of Employees!");
-			foreach (var list in _employees)
+			foreach (var item in _employees)
 			{
-				Console.WriteLine(list);
+				Console.WriteLine(item);
 			}
 		}
 	}
