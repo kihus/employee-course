@@ -10,7 +10,7 @@ for (int i = 0; i < n; i++)
 	var userId = int.Parse(Console.ReadLine() ?? "0");
 
 	Console.Write("Name: ");
-	var name = Console.ReadLine();
+	var name = Console.ReadLine() ?? "0";
 
 	Console.Write("Salary: ");
 	var salary = double.Parse(Console.ReadLine() ?? "0");

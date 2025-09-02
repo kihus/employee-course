@@ -2,7 +2,7 @@
 {
 	internal class EmployeeManager
 	{
-		private List<Employee> _employees = new();
+		private List<Employee> _employees = [];
 		private static EmployeeManager? _instance;
 		public static EmployeeManager Instance
 		{
